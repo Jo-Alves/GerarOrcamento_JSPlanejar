@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB9882DA-8BC7-41E3-B931-4D715E1BC3B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GerarOrcamento_JSPlanejar</RootNamespace>
+    <AssemblyName>GerarOrcamento_JSPlanejar</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\GO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClassProject, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\ClassProject\ClassProject\bin\Debug\ClassProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ClassAutenticacao.cs" />
+    <Compile Include="Classes\ClassEmpresa.cs" />
+    <Compile Include="Classes\ClassFormaPagamento.cs" />
+    <Compile Include="Classes\ClassItensPeça.cs" />
+    <Compile Include="Classes\ClassParcelaPagamento.cs" />
+    <Compile Include="Classes\ClassPeças.cs" />
+    <Compile Include="Classes\ClassOrcamento.cs" />
+    <Compile Include="Classes\ClassUsuario.cs" />
+    <Compile Include="Connected Services\WebServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="dbControleOrcamentoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbControleOrcamentoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAtualizarOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAtualizarOrcamento.designer.cs">
+      <DependentUpon>FrmAtualizarOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutenticacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutenticacao.designer.cs">
+      <DependentUpon>FrmAutenticacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaixarPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaixarPagamento.designer.cs">
+      <DependentUpon>FrmBaixarPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarCliente.Designer.cs">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarregamentoSistemaGerarOrcamento_JSPlanejar.cs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCarregamentoSistemaGerarOrcamento_JSPlanejar.cs.designer.cs">
+      <DependentUpon>FrmCarregamentoSistemaGerarOrcamento_JSPlanejar.cs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContasClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContasClientes.designer.cs">
+      <DependentUpon>FrmContasClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContasReceber.designer.cs">
+      <DependentUpon>FrmContasReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpresa.designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFechar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFechar.Designer.cs">
+      <DependentUpon>FrmFechar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinalizarAtualizacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinalizarAtualizacao.designer.cs">
+      <DependentUpon>FrmFinalizarAtualizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFinalizarOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFinalizarOrcamento.Designer.cs">
+      <DependentUpon>FrmFinalizarOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGerarOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerarOrcamento.Designer.cs">
+      <DependentUpon>FrmGerarOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImprimirOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImprimirOrcamento.Designer.cs">
+      <DependentUpon>FrmImprimirOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInformarDicaSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInformarDicaSenha.designer.cs">
+      <DependentUpon>FrmInformarDicaSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNovoOrcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNovoOrcamento.Designer.cs">
+      <DependentUpon>FrmNovoOrcamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagamentoOpcoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagamentoOpcoes.Designer.cs">
+      <DependentUpon>FrmPagamentoOpcoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPeças.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPeças.designer.cs">
+      <DependentUpon>FrmPeças.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrevisaoEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrevisaoEntrega.Designer.cs">
+      <DependentUpon>FrmPrevisaoEntrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRedefinicaoSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRedefinicaoSenha.designer.cs">
+      <DependentUpon>FrmRedefinicaoSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepasseParcela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepasseParcela.Designer.cs">
+      <DependentUpon>FrmRepasseParcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRestauracaoSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRestauracaoSistema.designer.cs">
+      <DependentUpon>FrmRestauracaoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSobre.designer.cs">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTelaPrincipal.Designer.cs">
+      <DependentUpon>FrmTelaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagamento.Designer.cs">
+      <DependentUpon>FrmPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FrmAtualizarOrcamento.resx">
+      <DependentUpon>FrmAtualizarOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutenticacao.resx">
+      <DependentUpon>FrmAutenticacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaixarPagamento.resx">
+      <DependentUpon>FrmBaixarPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarCliente.resx">
+      <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCarregamentoSistemaGerarOrcamento_JSPlanejar.cs.resx">
+      <DependentUpon>FrmCarregamentoSistemaGerarOrcamento_JSPlanejar.cs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContasClientes.resx">
+      <DependentUpon>FrmContasClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContasReceber.resx">
+      <DependentUpon>FrmContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpresa.resx">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFechar.resx">
+      <DependentUpon>FrmFechar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinalizarAtualizacao.resx">
+      <DependentUpon>FrmFinalizarAtualizacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFinalizarOrcamento.resx">
+      <DependentUpon>FrmFinalizarOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerarOrcamento.resx">
+      <DependentUpon>FrmGerarOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImprimirOrcamento.resx">
+      <DependentUpon>FrmImprimirOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInformarDicaSenha.resx">
+      <DependentUpon>FrmInformarDicaSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNovoOrcamento.resx">
+      <DependentUpon>FrmNovoOrcamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagamentoOpcoes.resx">
+      <DependentUpon>FrmPagamentoOpcoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPeças.resx">
+      <DependentUpon>FrmPeças.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrevisaoEntrega.resx">
+      <DependentUpon>FrmPrevisaoEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRedefinicaoSenha.resx">
+      <DependentUpon>FrmRedefinicaoSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepasseParcela.resx">
+      <DependentUpon>FrmRepasseParcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRestauracaoSistema.resx">
+      <DependentUpon>FrmRestauracaoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSobre.resx">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTelaPrincipal.resx">
+      <DependentUpon>FrmTelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagamento.resx">
+      <DependentUpon>FrmPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="rpOrcamento.rdlc" />
+    <EmbeddedResource Include="rpRepasseParcelamento.rdlc" />
+    <None Include="Connected Services\WebServices\AtendeClienteService.wsdl" />
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.atualizaPagamentoNaEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.atualizaRemessaAgrupadaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.bloquearObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaContratoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaPagamentoEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaServicosAdicionaisAtivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaServicosValorDeclaradoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaServicosXServicosAdicionaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.buscaTarifaValeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.calculaTarifaServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.cancelarObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.cancelarPedidoScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.clienteERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.consultaCEPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.consultaSROResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.consultaSRO_NEWResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.contratoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.embalagemLRSMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.enderecoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.fechaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.fechaPlpVariosServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.geraDigitoVerificadorEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.getStatusCartaoPostagemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.getStatusPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.integrarUsuarioScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.obterClienteAtualizacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.obterEmbalagemLRSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.retornoCancelamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.servicoAdicionalXML.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.servicoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.solicitaEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.solicitaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.solicitarPostagemScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.solicitaXmlPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.statusCartao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.statusPlp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.valePostal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.validaEtiquetaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.validaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.validarPostagemReversaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.validarPostagemSimultaneaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.verificaDisponibilidadeServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WebServices\GerarOrcamento_JSPlanejar.WebServices.VerificaSeTodosObjetosCanceladosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="dbControleOrcamentoDataSet.xsc">
+      <DependentUpon>dbControleOrcamentoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbControleOrcamentoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbControleOrcamentoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbControleOrcamentoDataSet.xss">
+      <DependentUpon>dbControleOrcamentoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Penguins.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-edit-delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correio.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correio1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-contact-new-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clients-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Client-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-list-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WebServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WebServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WebServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WebServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Client-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clients-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pecas-g.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pecas-g.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget-icon64X64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clients-icon64X64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pecas-g1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pecas-g2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CleanMyMac-1-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Files-New-File-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Programming-Show-Property-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Cancel-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop-cart-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Add-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok-icon 24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Cancel-icon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-exit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go-back-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Computer-Hardware-Enter-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text-Edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button-Delete-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\company-building-icon %28128px%29.png" />
+    <None Include="Resources\Invoice-icon.png" />
+    <None Include="Resources\Custom-Icon-Design-Pretty-Office-2-Account.ico" />
+    <None Include="Resources\LAS Technology.png" />
+    <None Include="Resources\close-icon 24x24.png" />
+    <None Include="Resources\logar.ico" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\Users-icon.png" />
+    <None Include="Resources\Apps-Calculator-Metro-icon.png" />
+    <None Include="Resources\About-icon.png" />
+    <None Include="Resources\cadastro.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\accessories-calculator-icon.png" />
+    <None Include="Resources\Button-Help-icon.png" />
+    <None Include="Resources\Windows-Close-Program-icon.png" />
+    <None Include="Resources\backup-restore-icon.png" />
+    <None Include="Resources\folder-documents-icon %281%29.png" />
+    <None Include="Resources\Database-Backup-icon.png" />
+    <None Include="Resources\Windows-Close-Program-icon 24x24.png" />
+    <None Include="Resources\JS Planejar.jpg" />
+    <None Include="Resources\JS Planejar.png" />
+    <None Include="Resources\GO.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
